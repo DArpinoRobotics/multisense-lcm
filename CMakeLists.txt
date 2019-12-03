@@ -9,7 +9,8 @@ set(CMAKE_PREFIX_PATH "${CMAKE_INSTALL_PREFIX}")
 # variables, see cmake/lcmtypes.cmake for details
 set(POD_NAME driver-lcm)
 set(PROJECT_NAME multisense)
+
 include(cmake/lcmtypes.cmake)
-lcmtypes_build()
+lcmtypes_build(PY_DEST_DIR ${PROJECT_SOURCE_DIR}/python/src EXPORT ${POD_NAME})
 
 add_subdirectory(src)

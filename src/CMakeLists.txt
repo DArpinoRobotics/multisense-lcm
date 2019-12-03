@@ -14,11 +14,13 @@ add_executable(${DRIVER_NAME}
 
 find_package(ZLIB REQUIRED)
 find_package(LibMultiSense REQUIRED)
+find_package(lcm REQUIRED)
 
 target_link_libraries(${DRIVER_NAME} ${ZLIB_LIBRARIES} ${LIBMULTISENSE_LIBRARIES})
 
 pods_use_pkg_config_packages(${DRIVER_NAME}
-  lcm opencv
+  lcm LibMultiSense opencv
 )
 
-pods_install_executables(${DRIVER_NAME})
+#pods_install_executables(multisense-lcm-driver)
+pods_install_executables(EXPORT ${POD_NAME} multisense-lcm-driver)
